@@ -4,6 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// import Sum from "./utils/someJs";
+
+import {sum, division, multiply} from "./utils/garbage";
+import {sum as secondSum} from "./utils/log";
+
+// import {sum as threeSum} from "./utils/sum";
+// import {multiply as threeMultiply} from "./utils/multiply";
+// import {division as threeDivision} from "./utils/division";
+
 const rootDiv = document.getElementById('root');
 
 const root = ReactDOM.createRoot(rootDiv);
@@ -12,27 +21,19 @@ root.render(
     <App />
   </React.StrictMode>
 );
+// console.log(threeSum(2,5);
+// console.log(threeMultiply(2,5);
+// console.log(threeDivision(2,5);
 
-console.log('srfsdrg');
+// // console.log(Sum(15, 5));
+console.log(sum(15, 5));
+console.log(division(15, 5));
+console.log(multiply(15, 5));
+// // lolKek("Hi");
+// console.log(secondSum(15, 5));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
-// import Sum from "./utils/someJs";
-
-import sumFromMe from './utils/someJs';
-// //
-// // console.log(sum(1,2));
-//
-// // import {sum, division, multiply} from './utils';
-//
-console.log(sumFromMe(1, 2));
-//
 reportWebVitals();
-
-
-//
 
 
 
