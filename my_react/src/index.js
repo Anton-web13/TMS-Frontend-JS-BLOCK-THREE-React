@@ -6,8 +6,10 @@ import reportWebVitals from './reportWebVitals';
 
 // import Sum from "./utils/someJs";
 
-import {sum, division, multiply} from "./utils/garbage";
-import {sum as secondSum} from "./utils/log";
+// import {sum, division, multiply} from "./utils/garbage";
+// import {sum as secondSum} from "./utils/log";
+
+import {sum, division, multiply} from "./utils/index";
 
 // import {sum as threeSum} from "./utils/sum";
 // import {multiply as threeMultiply} from "./utils/multiply";
@@ -29,13 +31,15 @@ root.render(
 console.log(sum(15, 5));
 console.log(division(15, 5));
 console.log(multiply(15, 5));
+
 // // lolKek("Hi");
 // console.log(secondSum(15, 5));
 
 
-reportWebVitals();
+// reportWebVitals();
 
 
+export const lol = 5;
 
 
 
