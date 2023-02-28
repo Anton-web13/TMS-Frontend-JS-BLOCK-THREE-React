@@ -32,12 +32,6 @@ class CounterCountainer extends Component{
             handleIncrement={this.handleIncrement}
             handleReset={this.handleReset}
         />
-
-        // <CounterView
-        //     counterValue={this.state.countValue}
-        //     handleIncrement={this.handleIncrement}
-        //     handleReset={this.handleReset}
-        // />
     }
 }
 

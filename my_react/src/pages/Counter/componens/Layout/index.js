@@ -4,12 +4,11 @@ import CounterView from "../CounterView";
 const Layout = ({counterValue, handleIncrement, handleReset}) => {
     return (
         <div>
-            <Header />
-                <CounterView
-                    handleReset={handleReset}
-                    counterValue={counterValue}
-                    handleIncrement={handleIncrement}
-                />
+            <CounterView
+                handleReset={handleReset}
+                counterValue={counterValue}
+                handleIncrement={handleIncrement}
+            />
         </div>
     );
 };
