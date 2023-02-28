@@ -1,5 +1,7 @@
 import {Link} from "react-router-dom";
 
+import {startCase} from "lodash";
+
 import {ROUTE_NAMES} from "../../routers/routerNames";
 
 import styles from "./styles.module.css";
@@ -7,8 +9,10 @@ import styles from "./styles.module.css";
 const Header = () => {
     return (
         <div className={styles.wrapper}>
-            <Link to={ROUTE_NAMES.HOME} className={styles.navLink}>Home page</Link>
-            <Link to={ROUTE_NAMES.COUNTER}  className={styles.navLink}>Counter page</Link>
+
+            {Object.entries(ROUTE_NAMES).map(([routeName, path]) => (
+                <Link key={path} to={path} className={styles.navLink}>{startCase(routeName)}</Link>
+            ))}
         </div>
     );
 };
