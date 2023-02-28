@@ -2,10 +2,9 @@ import PropTypes from "prop-types";
 
 import styles from './styles.module.css';
 
-const CounterView = ({counterValue, handleIncrement, handleReset, x= "Hello World" }) => {
+const CounterView = ({counterValue, handleIncrement, handleReset, someObject}) => {
     return (
         <div className={styles.wrapper}>
-            <h1>{x}</h1>
             <div className={styles.display}>{counterValue}</div>
 
             <div className={styles.controlButtons}>
@@ -18,14 +17,14 @@ const CounterView = ({counterValue, handleIncrement, handleReset, x= "Hello Worl
     );
 }
 
-// CounterView.defaultProps = {
-//     x: 'Hello World!',
-// }
-
 CounterView.propTypes = {
     counterValue: PropTypes.number.isRequired,
     handleIncrement: PropTypes.func.isRequired,
     handleReset: PropTypes.func.isRequired,
+    someObject: PropTypes.shape({
+        a: PropTypes.number,
+        b: PropTypes.string,
+    })
 }
 
 export default CounterView;

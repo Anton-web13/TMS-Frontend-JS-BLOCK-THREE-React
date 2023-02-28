@@ -1,6 +1,4 @@
 import { Component } from "react";
-import CounterView from "../componens/CounterView";
-import {logDOM} from "@testing-library/react";
 import Layout from "../componens/Layout";
 
 class CounterCountainer extends Component{

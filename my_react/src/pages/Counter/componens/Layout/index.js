@@ -8,6 +8,7 @@ const Layout = ({counterValue, handleIncrement, handleReset}) => {
                 handleReset={handleReset}
                 counterValue={counterValue}
                 handleIncrement={handleIncrement}
+                someObject={{a: 1, b: 'Hello'}}
             />
         </div>
     );
