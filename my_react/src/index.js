@@ -4,9 +4,9 @@ import { BrowserRouter } from "react-router-dom";
 
 import Router from "./routers/Router";
 
-import reportWebVitals from './reportWebVitals';
+// import reportWebVitals from './reportWebVitals';
 
-import './index.css';
+import './static/index.css';
 
 const rootDiv = document.getElementById('root');
 
@@ -17,7 +17,7 @@ root.render(
     </BrowserRouter>
 );
 
-reportWebVitals();
+// reportWebVitals();
 
 
 
