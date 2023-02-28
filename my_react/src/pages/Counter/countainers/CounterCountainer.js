@@ -8,6 +8,32 @@ class CounterCountainer extends Component{
         this.state = {
             countValue: 0,
         }
+
+        console.log("Constructor");
+    }
+
+    // interval = null;
+
+    componentDidMount() {
+        // this.interval = setInterval(() => {
+        //     this.handleIncrement();
+        // }, 2000)
+
+        console.log("Did Mount");
+    }
+
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     console.log("Should Component Update, true")
+    //     return true;
+    // }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        console.log("Did Update");
+    }
+
+    componentWillUnmount() {
+        // clearInterval(this.interval)
+        console.log("Unmounted")
     }
 
     handleIncrement = () => {
@@ -25,6 +51,7 @@ class CounterCountainer extends Component{
     }
 
     render() {
+        console.log("Render");
         return <Layout
             counterValue={this.state.countValue}
             handleIncrement={this.handleIncrement}
