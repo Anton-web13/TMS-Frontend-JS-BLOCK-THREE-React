@@ -2,7 +2,9 @@ import Header from '../../../../components/Header';
 import CounterView from "../CounterView";
 import UserCard from "../../../../components/UserCard";
 
-const Layout = ({counterValue, handleIncrement, handleReset}) => {
+const Layout = ({counterValue, handleIncrement, handleReset, someValue}) => {
+
+    // console.log(someValue.address.city)
     return (
         <div>
 

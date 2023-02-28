@@ -7,6 +7,7 @@ class CounterCountainer extends Component{
 
         this.state = {
             countValue: 0,
+            isBlocked: false,
         }
 
         console.log("Constructor");
@@ -28,7 +29,16 @@ class CounterCountainer extends Component{
     // }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        console.log("Did Update");
+        // console.log(prevState)
+        // if (this.state.countValue === 5 && prevState.countValue !== this.state.countValue) {
+        // if (this.state.countValue === 5 && this.state.isBlocked !== true) {
+        //     this.setState({isBlocked: true})
+        // }
+        // console.log("Did Update");
+
+        // if (this.state.countValue % 2 === 0) {
+        //     alert('Some date fetching...')
+        // }
     }
 
     componentWillUnmount() {
@@ -37,13 +47,15 @@ class CounterCountainer extends Component{
     }
 
     handleIncrement = () => {
-        this.setState((previousState) => {
-            const incrementedValue = previousState.countValue + 1;
+        if (this.state.countValue < 5) {
+            this.setState((previousState) => {
+                const incrementedValue = previousState.countValue + 1;
 
-            return {
-                countValue: incrementedValue,
-            }
-        })
+                return {
+                    countValue: incrementedValue,
+                }
+            })
+        }
     }
 
     handleReset = () => {
@@ -51,11 +63,20 @@ class CounterCountainer extends Component{
     }
 
     render() {
-        console.log("Render");
+
+        // const user = {
+        //     name: "Alex",
+        //
+        //     address: {
+        //         city: "Minsk"
+        //     }
+        // }
+        console.log(this.state.isBlocked);
         return <Layout
             counterValue={this.state.countValue}
             handleIncrement={this.handleIncrement}
             handleReset={this.handleReset}
+            // someValue={user}
         />
     }
 }
