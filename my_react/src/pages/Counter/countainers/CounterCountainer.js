@@ -7,31 +7,65 @@ class CounterCountainer extends Component{
 
         this.state = {
             countValue: 0,
+            isEven: true,
+            countValueDescription: 'Чётное число',
         }
     }
 
     handleIncrement = () => {
-        if (this.state.countValue < 5) {
-            this.setState((previousState) => {
-                const incrementedValue = previousState.countValue + 1;
+        this.setState((state) => {
+            const incrementedValue = state.countValue + 1;
+
+            if (incrementedValue % 2 === 0) {
+                state.countValueDescription = "Введено чётное число";
+            } else {
+                state.countValueDescription = "Введено нёчетное число";
+            }
+
+            return {
+                countValue: incrementedValue,
+                countValueDescription: state.countValueDescription,
+            }
+        })
+    }
+
+    handleDecrease  = () => {
+        if (this.state.countValue >= 1) {
+            this.setState((state) => {
+                const incrementedValue = state.countValue - 1;
+
+                if (incrementedValue % 2 === 0) {
+                    state.countValueDescription = "Введено чётное число";
+                } else {
+                    state.countValueDescription = "Введено нёчетное число";
+                }
 
                 return {
                     countValue: incrementedValue,
+                    countValueDescription: state.countValueDescription,
                 }
             })
         }
     }
 
     handleReset = () => {
-        this.setState({countValue: 0})
+        this.setState((state) => {
+            state.countValue = 0;
+            state.countValueDescription = "Чётное число";
+
+            return {
+                countValueDescription: state.countValueDescription,
+            }
+        })
     }
 
     render() {
-        console.log(this.state.isBlocked);
         return <Layout
             counterValue={this.state.countValue}
             handleIncrement={this.handleIncrement}
+            handleDecrease={this.handleDecrease}
             handleReset={this.handleReset}
+            countValueDescription={this.state.countValueDescription}
         />
     }
 }

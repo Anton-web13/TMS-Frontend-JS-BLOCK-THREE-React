@@ -2,8 +2,7 @@ import Header from '../../../../components/Header';
 import CounterView from "../CounterView";
 import UserCard from "../../../../components/UserCard";
 
-const Layout = ({counterValue, handleIncrement, handleReset}) => {
-
+const Layout = ({counterValue, handleIncrement, handleDecrease, handleReset, countValueDescription}) => {
     return (
         <div>
 
@@ -12,11 +11,12 @@ const Layout = ({counterValue, handleIncrement, handleReset}) => {
                     handleReset={handleReset}
                     counterValue={counterValue}
                     handleIncrement={handleIncrement}
-                    someObject={{a: 1, b: 'Hello'}}
+                    handleDecrease={handleDecrease}
+                    countValueDescription={countValueDescription}
                 />
             </div>
 
-            <UserCard name={"Alex"} age={25}/>
+            {/*<UserCard name={"Alex"} age={25}/>*/}
         </div>
     );
 };
