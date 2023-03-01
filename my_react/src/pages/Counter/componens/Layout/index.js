@@ -1,11 +1,8 @@
-import Header from '../../../../components/Header';
 import CounterView from "../CounterView";
-import UserCard from "../../../../components/UserCard";
 
 const Layout = ({counterValue, handleIncrement, handleDecrease, handleReset, countValueDescription, isEven}) => {
     return (
         <div>
-
             <div style={{marginBottom: 25}}>
                 <CounterView
                     handleReset={handleReset}
@@ -16,8 +13,6 @@ const Layout = ({counterValue, handleIncrement, handleDecrease, handleReset, cou
                     isEven={isEven}
                 />
             </div>
-
-            {/*<UserCard name={"Alex"} age={25}/>*/}
         </div>
     );
 };

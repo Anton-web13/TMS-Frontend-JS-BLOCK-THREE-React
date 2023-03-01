@@ -4,7 +4,7 @@ import styles from './styles.module.css';
 
 const CounterView = ({counterValue, handleIncrement, handleDecrease, handleReset, countValueDescription, isEven}) => {
     return (
-        <div className={`${styles.wrapper} ${isEven ? styles.redColor : styles.turquoiseColor}`}>
+        <div className={styles.wrapper} style={{backgroundColor: isEven ? "red" : "#0fb3d9"}}>
             <div className={styles.display}>{counterValue}</div>
             <div className={styles.display}>{countValueDescription}</div>
 
