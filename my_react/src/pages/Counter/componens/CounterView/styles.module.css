@@ -15,6 +15,7 @@
     text-align: center;
     font-weight: 700;
     margin-bottom: 15px;
+    background-color: #ffffff;
 }
 
 .controlButtons {
@@ -26,8 +27,16 @@
 
 .controlButton {
     text-align: center;
-    border-radius: 50%;
-    width: 50px;
+    border-radius: 10%;
+    width: 100px;
     height: 50px;
     cursor: pointer;
+}
+
+.redColor{
+    background-color: #f80202;
+}
+
+.turquoiseColor {
+    background-color: #0fb3d9;
 }

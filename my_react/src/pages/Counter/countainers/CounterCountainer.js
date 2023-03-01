@@ -17,14 +17,17 @@ class CounterCountainer extends Component{
             const incrementedValue = state.countValue + 1;
 
             if (incrementedValue % 2 === 0) {
+                state.isEven = true;
                 state.countValueDescription = "Введено чётное число";
             } else {
+                state.isEven = false;
                 state.countValueDescription = "Введено нёчетное число";
             }
 
             return {
                 countValue: incrementedValue,
                 countValueDescription: state.countValueDescription,
+                isEven: state.isEven,
             }
         })
     }
@@ -35,14 +38,17 @@ class CounterCountainer extends Component{
                 const incrementedValue = state.countValue - 1;
 
                 if (incrementedValue % 2 === 0) {
+                    state.isEven = true;
                     state.countValueDescription = "Введено чётное число";
                 } else {
+                    state.isEven = false;
                     state.countValueDescription = "Введено нёчетное число";
                 }
 
                 return {
                     countValue: incrementedValue,
                     countValueDescription: state.countValueDescription,
+                    isEven: state.isEven,
                 }
             })
         }
@@ -50,11 +56,13 @@ class CounterCountainer extends Component{
 
     handleReset = () => {
         this.setState((state) => {
+            state.isEven = true;
             state.countValue = 0;
             state.countValueDescription = "Чётное число";
 
             return {
                 countValueDescription: state.countValueDescription,
+                isEven: state.isEven,
             }
         })
     }
@@ -66,6 +74,7 @@ class CounterCountainer extends Component{
             handleDecrease={this.handleDecrease}
             handleReset={this.handleReset}
             countValueDescription={this.state.countValueDescription}
+            isEven={this.state.isEven}
         />
     }
 }

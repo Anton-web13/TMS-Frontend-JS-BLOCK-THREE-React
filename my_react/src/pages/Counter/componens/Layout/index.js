@@ -2,7 +2,7 @@ import Header from '../../../../components/Header';
 import CounterView from "../CounterView";
 import UserCard from "../../../../components/UserCard";
 
-const Layout = ({counterValue, handleIncrement, handleDecrease, handleReset, countValueDescription}) => {
+const Layout = ({counterValue, handleIncrement, handleDecrease, handleReset, countValueDescription, isEven}) => {
     return (
         <div>
 
@@ -13,6 +13,7 @@ const Layout = ({counterValue, handleIncrement, handleDecrease, handleReset, cou
                     handleIncrement={handleIncrement}
                     handleDecrease={handleDecrease}
                     countValueDescription={countValueDescription}
+                    isEven={isEven}
                 />
             </div>
 
