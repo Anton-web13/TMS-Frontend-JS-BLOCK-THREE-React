@@ -19,7 +19,7 @@ const useCounter = (initialValue, trackCountChanges = false) => {
 
     const handleAddAmount = useCallback((amount) => {
         setCountValue(state => state + amount)
-    }, p)
+    }, [])
 
     useEffect(() => {
         if (trackCountChanges) {
