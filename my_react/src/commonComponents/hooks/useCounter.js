@@ -1,6 +1,6 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
-const useCounter = (initialValue) => {
+const useCounter = (initialValue, trackCountChanges = false) => {
     const [countValue, setCountValue] = useState(initialValue);
 
     const handleIncrement = () => {
@@ -17,9 +17,23 @@ const useCounter = (initialValue) => {
         setCountValue(0)
     }
 
+    const handleAddAmount = (amount) => {
+        setCountValue(countValue + amount)
+    }
+
+    useEffect(() => {
+        if (trackCountChanges) {
+            console.log(`Value was changed. Current value is ${countValue}`)
+        }
+    }, [countValue])
+
     return {
+        countValue,
         handleIncrement,
         handleDecrease,
         handleReset,
+        handleAddAmount,
     }
 }
+
+export default useCounter;

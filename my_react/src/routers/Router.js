@@ -5,11 +5,12 @@ import ConditionalRenderingContainer from "../pages/ConditionalRendering/contain
 import FunctionalCounterContainer from "../pages/FunctionalCounter/containers/FunctionalCounterContainer";
 
 import {ROUTE_NAMES} from "./routerNames";
+import HomePageContainers from "../pages/Home/containers/HomePageContainers";
 
 const Router = () => {
     return (
         <Routes>
-            <Route path={ROUTE_NAMES.HOME} element={<h1>Home page</h1>}/>
+            <Route path={ROUTE_NAMES.HOME} element={<HomePageContainers />}/>
             <Route path={ROUTE_NAMES.COUNTER} element={<CounterCountainer />}/>
             <Route path={ROUTE_NAMES.CONDITIONAL_RENDERING} element={<ConditionalRenderingContainer />}/>
             <Route path={ROUTE_NAMES.FUNCTIONAL_COUNTER} element={<FunctionalCounterContainer />}/>
