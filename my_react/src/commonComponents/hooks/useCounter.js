@@ -1,4 +1,4 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 
 const useCounter = (initialValue, trackCountChanges = false) => {
     const [countValue, setCountValue] = useState(initialValue);
@@ -13,13 +13,13 @@ const useCounter = (initialValue, trackCountChanges = false) => {
         setCountValue(countValue - 1)
     }
 
-    const handleReset = () => {
+    const handleReset = useCallback(() => {
         setCountValue(0)
-    }
+    }, [])
 
-    const handleAddAmount = (amount) => {
-        setCountValue(countValue + amount)
-    }
+    const handleAddAmount = useCallback((amount) => {
+        setCountValue(state => state + amount)
+    }, p)
 
     useEffect(() => {
         if (trackCountChanges) {

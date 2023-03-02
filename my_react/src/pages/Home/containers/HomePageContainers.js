@@ -9,7 +9,7 @@ const HomePageContainers = () => {
         <>
             <h1>Home</h1>
 
-            <Fragment key={}>
+            <Fragment>
                 <p>1</p>
                 <p>2</p>
             </Fragment>
