@@ -1,7 +1,10 @@
 import {Route, Routes} from "react-router-dom";
-import {ROUTE_NAMES} from "./routerNames";
+
 import CounterCountainer from "../pages/Counter/countainers/CounterCountainer";
 import ConditionalRenderingContainer from "../pages/ConditionalRendering/containers/ConditionalRenderingContainer";
+import FunctionalCounterContainer from "../pages/FunctionalCounter/containers/FunctionalCounterContainer";
+
+import {ROUTE_NAMES} from "./routerNames";
 
 const Router = () => {
     return (
@@ -9,6 +12,7 @@ const Router = () => {
             <Route path={ROUTE_NAMES.HOME} element={<h1>Home page</h1>}/>
             <Route path={ROUTE_NAMES.COUNTER} element={<CounterCountainer />}/>
             <Route path={ROUTE_NAMES.CONDITIONAL_RENDERING} element={<ConditionalRenderingContainer />}/>
+            <Route path={ROUTE_NAMES.FUNCTIONAL_COUNTER} element={<FunctionalCounterContainer />}/>
 
             <Route path="*" element={<h1>404 Not Found</h1>}/>
         </Routes>

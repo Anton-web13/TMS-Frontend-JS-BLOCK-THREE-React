@@ -7,7 +7,7 @@ import Router from "./routers/Router";
 // import reportWebVitals from './reportWebVitals';
 
 import './static/index.css';
-import MainLayout from "./components/MainLayout/MainLayout";
+import MainLayout from "./commonComponents/MainLayout/MainLayout";
 
 const rootDiv = document.getElementById('root');
 

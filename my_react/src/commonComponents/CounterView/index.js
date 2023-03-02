@@ -19,11 +19,11 @@ const CounterView = ({counterValue, handleIncrement, handleDecrease, handleReset
 }
 
 CounterView.propTypes = {
-    counterValue: PropTypes.number.isRequired,
-    handleIncrement: PropTypes.func.isRequired,
-    handleReset: PropTypes.func.isRequired,
-    isEven: PropTypes.bool.isRequired,
-    countValueDescription: PropTypes.string.isRequired,
+    counterValue: PropTypes.number,
+    handleIncrement: PropTypes.func,
+    handleReset: PropTypes.func,
+    isEven: PropTypes.bool,
+    countValueDescription: PropTypes.string,
 }
 
 export default CounterView;
