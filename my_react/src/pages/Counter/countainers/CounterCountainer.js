@@ -12,6 +12,10 @@ class CounterCountainer extends Component{
         }
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        // alert("Did update")
+    }
+
     handleIncrement = () => {
         this.setState((state) => {
             const incrementedValue = state.countValue + 1;
@@ -29,6 +33,8 @@ class CounterCountainer extends Component{
                 countValueDescription: state.countValueDescription,
                 isEven: state.isEven,
             }
+        }, () => {
+            // alert("Hello")
         })
     }
 
