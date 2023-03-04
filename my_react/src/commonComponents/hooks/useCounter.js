@@ -9,16 +9,6 @@ const useCounter = (initialValue) => {
         })
     }, [])
 
-    // const handleIncrement = useCallback(() => {
-    //     setCountValue(countValue + 1)
-    // }, [countValue])
-
-    // const handleIncrement = () => {
-    //     setCountValue((prevState) => {
-    //         return prevState + 1;
-    //     })
-    // }
-
     const handleDecrease = useCallback(() => {
         setCountValue(countValue - 1)
     }, [])
@@ -30,12 +20,6 @@ const useCounter = (initialValue) => {
     const handleAddAmount = useCallback((amount) => {
         setCountValue(state => state + amount)
     }, [])
-
-    // useEffect(() => {
-    //     if (trackCountChanges) {
-    //         console.log(`Value was changed. Current value is ${countValue}`)
-    //     }
-    // }, [countValue])
 
     return {
         countValue,
