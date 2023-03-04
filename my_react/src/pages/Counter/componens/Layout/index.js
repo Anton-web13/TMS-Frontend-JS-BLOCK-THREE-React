@@ -1,4 +1,4 @@
-import CounterView from "../../../../commonComponents/CounterView";
+import CounterView from "commonComponents/CounterView";
 
 const Layout = ({counterValue, handleIncrement, handleDecrease, handleReset, countValueDescription, isEven}) => {
     return (
