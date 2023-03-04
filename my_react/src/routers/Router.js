@@ -3,10 +3,10 @@ import {Route, Routes} from "react-router-dom";
 import CounterCountainer from "../pages/Counter/countainers/CounterCountainer";
 import ConditionalRenderingContainer from "../pages/ConditionalRendering/containers/ConditionalRenderingContainer";
 import FunctionalCounterContainer from "../pages/FunctionalCounter/containers/FunctionalCounterContainer";
-
-import {ROUTE_NAMES} from "./routerNames";
 import HomePageContainers from "../pages/Home/containers/HomePageContainers";
 import ListsContainer from "../pages/Lists/containers/ListsContainer";
+
+import {ROUTE_NAMES} from "./routerNames";
 
 const Router = () => {
     return (
