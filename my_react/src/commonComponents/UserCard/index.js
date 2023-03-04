@@ -13,8 +13,8 @@ const UserCard = ({id, name, age, image, isBlocked, onDelete, onBlock}) => {
             <h1 className={styles.name}>User name: {name}</h1>
             <h2 className={styles.age}>Age: {age}</h2>
 
-            <button onClick={onDelete}>Delete</button>
-            <button onClick={onBlock}>Block User!</button>
+            <button onClick={() => onDelete(id)}>Delete</button>
+            <button onClick={() => onBlock(id)}>Block User!</button>
         </div>
     );
 }

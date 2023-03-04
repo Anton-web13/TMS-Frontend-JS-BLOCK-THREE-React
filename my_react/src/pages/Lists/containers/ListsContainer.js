@@ -1,14 +1,23 @@
-import {Fragment, useState} from "react";
+import {Fragment, useCallback, useState} from "react";
 import Layout from "../components/Layout";
 import {v4 as uuid} from "uuid"
 import cloneDeep from "lodash/cloneDeep"
 
 // const numbers = [1,2,3,4,5];
 
+// const usersList = Array.from({length: 10000}, () => {
+//     return {
+//         id: uuid(),
+//         name: "Alex",
+//         age: 25,
+//         isBlocked: false,
+//     };
+// });
+
 const ListsContainer = () => {
     const [users, setUsers] = useState([]);
 
-    const handleAddUser = () => {
+    const handleAddUser = useCallback(() => {
         const newUser = {
             id: uuid(),
             name: "Alex",
@@ -16,40 +25,31 @@ const ListsContainer = () => {
             isBlocked: false,
         }
 
-        // const stateCopy = [...users];
-        // stateCopy.push(newUser);
-        // setUsers(stateCopy)
+        setUsers((state) => [...state, newUser]);
 
-        // users.push(newUser);
-        // console.log(users)
-        // setUsers(users)
+        // setUsers([...users, newUser])
+    }, [])
 
-        setUsers([...users, newUser])
-    }
+    const handleRemoveUser = useCallback((id) => {
+        setUsers((state) => {
+            const usersCopy = structuredClone(state);
+            const userIndexToRemove = usersCopy.findIndex((user) => user.id === id);
+            usersCopy.splice(userIndexToRemove, 1);
 
-    const handleRemoveUser = (id) => {
-        const usersCopy = [...users]
-        const userIndexToRemove = usersCopy.findIndex((user) => user.id === id)
+            return usersCopy;
+        });
+    }, [])
 
-        usersCopy.splice(userIndexToRemove, 1)
+    const handleBlockUser = useCallback((id) => {
+        setUsers((state) => {
+            const usersCopy = structuredClone(state);
+            const foundUser = usersCopy.find((user) => user.id === id)
 
-        setUsers(usersCopy);
-    }
+            foundUser.isBlocked= true;
 
-    const handleBlockUser = (id) => {
-        // const usersCopy = [...users];
-        // const usersCopy = cloneDeep(users);
-        const usersCopy = structuredClone(users);
-
-        const foundUser = usersCopy.find((user) => user.id === id)
-
-        foundUser.isBlocked= true;
-
-        // console.log(users);
-        // console.log(usersCopy);
-
-        setUsers(usersCopy);
-    }
+            return usersCopy;
+        })
+    }, [])
 
     return (
         <div style={{padding: 25}}>
