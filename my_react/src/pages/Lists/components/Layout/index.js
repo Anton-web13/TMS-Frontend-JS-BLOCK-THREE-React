@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import UserCard from "commonComponents/UserCard";
 
-const Layout = ({users, handleAddUser, handleRemoveUser}) => {
+const Layout = ({users, handleAddUser, handleRemoveUser, handleBlockUser}) => {
     // const x = 5;
 
     return (
@@ -15,8 +15,16 @@ const Layout = ({users, handleAddUser, handleRemoveUser}) => {
             {/*    someMethod(x)*/}
             {/*}}>Some</button>*/}
 
-            {users.map(({name, age, id}, index) => (
-                <UserCard key={id} name={name} age={age} id={id} onDelete={() => handleRemoveUser(id)}/>
+            {users.map(({name, age, id, isBlocked}, index) => (
+                <UserCard
+                    key={id}
+                    name={name}
+                    age={age}
+                    id={id}
+                    isBlocked={isBlocked}
+                    onDelete={() => handleRemoveUser(id)}
+                    onBlock={() => handleBlockUser(id)}
+                />
             ))}
         </div>
     );

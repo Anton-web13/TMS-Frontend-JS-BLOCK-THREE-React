@@ -1,6 +1,7 @@
 import {Fragment, useState} from "react";
 import Layout from "../components/Layout";
 import {v4 as uuid} from "uuid"
+import cloneDeep from "lodash/cloneDeep"
 
 // const numbers = [1,2,3,4,5];
 
@@ -12,6 +13,7 @@ const ListsContainer = () => {
             id: uuid(),
             name: "Alex",
             age: new Date().getMilliseconds(),
+            isBlocked: false,
         }
 
         // const stateCopy = [...users];
@@ -34,6 +36,21 @@ const ListsContainer = () => {
         setUsers(usersCopy);
     }
 
+    const handleBlockUser = (id) => {
+        // const usersCopy = [...users];
+        // const usersCopy = cloneDeep(users);
+        const usersCopy = structuredClone(users);
+
+        const foundUser = usersCopy.find((user) => user.id === id)
+
+        foundUser.isBlocked= true;
+
+        // console.log(users);
+        // console.log(usersCopy);
+
+        setUsers(usersCopy);
+    }
+
     return (
         <div style={{padding: 25}}>
 
@@ -42,6 +59,7 @@ const ListsContainer = () => {
                 users={users}
                 handleAddUser={handleAddUser}
                 handleRemoveUser={handleRemoveUser}
+                handleBlockUser={handleBlockUser}
             />
         </div>
     );
