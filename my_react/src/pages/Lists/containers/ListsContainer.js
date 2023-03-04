@@ -1,7 +1,10 @@
-import {Fragment, useCallback, useState} from "react";
+import {Fragment, useCallback, useEffect, useState} from "react";
 import Layout from "../components/Layout";
 import {v4 as uuid} from "uuid"
-import cloneDeep from "lodash/cloneDeep"
+import {random} from "lodash"
+
+import {calcAverage} from "../utils/calcAverage";
+
 
 // const numbers = [1,2,3,4,5];
 
@@ -17,11 +20,17 @@ import cloneDeep from "lodash/cloneDeep"
 const ListsContainer = () => {
     const [users, setUsers] = useState([]);
 
+    const averageUsersAge = calcAverage(users);
+
+    useEffect(() => {
+        console.log("Recalculated");
+    }, [averageUsersAge])
+
     const handleAddUser = useCallback(() => {
         const newUser = {
             id: uuid(),
             name: "Alex",
-            age: new Date().getMilliseconds(),
+            age: random(1, 85, false),
             isBlocked: false,
         }
 
@@ -60,6 +69,7 @@ const ListsContainer = () => {
                 handleAddUser={handleAddUser}
                 handleRemoveUser={handleRemoveUser}
                 handleBlockUser={handleBlockUser}
+                averageUsersAge={averageUsersAge}
             />
         </div>
     );

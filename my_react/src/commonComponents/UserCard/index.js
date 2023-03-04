@@ -4,8 +4,10 @@ import {Component, memo} from "react";
 import styles from "./styles.module.css"
 import * as PropTypes from "prop-types";
 
-const UserCard = ({id, name, age, image, isBlocked, onDelete, onBlock}) => {
-    console.log("User Card Rendered")
+const UserCard = ({id, name, age, image, isBlocked, onDelete, onBlock, userDetails}) => {
+    // console.log("User Card Rendered");
+
+    // console.log(userDetails);
     return (
         <div className={`${styles.wrapper}`} style={{backgroundColor: isBlocked ? "red" : "white"}}>
             <h3 className={styles.id} style={{fontSize: 18}}>ID: {id}</h3>
