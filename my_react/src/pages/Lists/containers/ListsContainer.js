@@ -18,13 +18,20 @@ import {calcAverage} from "../utils/calcAverage";
 // });
 
 const ListsContainer = () => {
-    const [users, setUsers] = useState([]);
+    // console.log(ListsContainer.constructor)
 
-    const averageUsersAge = calcAverage(users);
+    const [users, setUsers] = useState([]);
+    const [date, setDate] = useState(new Date().getSeconds());
 
     useEffect(() => {
-        console.log("Recalculated");
-    }, [averageUsersAge])
+        const timer = setInterval(() => {
+            setDate(new Date().getSeconds());
+        }, 1000)
+
+        return () => {
+            clearInterval(timer);
+        }
+    }, [])
 
     const handleAddUser = useCallback(() => {
         const newUser = {
@@ -34,7 +41,11 @@ const ListsContainer = () => {
             isBlocked: false,
         }
 
-        setUsers((state) => [...state, newUser]);
+        setUsers((state) => {
+                // console.log(state)
+                return [...state, newUser]
+        });
+
 
         // setUsers([...users, newUser])
     }, [])
@@ -69,7 +80,7 @@ const ListsContainer = () => {
                 handleAddUser={handleAddUser}
                 handleRemoveUser={handleRemoveUser}
                 handleBlockUser={handleBlockUser}
-                averageUsersAge={averageUsersAge}
+                // averageUsersAge={averageUsersAge}
             />
         </div>
     );
