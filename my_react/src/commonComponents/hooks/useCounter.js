@@ -10,7 +10,9 @@ const useCounter = (initialValue) => {
     }, [])
 
     const handleDecrease = useCallback(() => {
-        setCountValue(countValue - 1)
+        setCountValue((state) => {
+            return state - 1;
+        })
     }, [])
 
     const handleReset = useCallback(() => {

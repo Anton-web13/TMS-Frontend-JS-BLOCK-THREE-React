@@ -14,6 +14,8 @@ const Layout = ({
                     handleBlockUser,
                     // averageUsersAge
 }) => {
+
+    console.log(handleAddUser)
     // const x = 5;
 
     // const userDetails = useMemo(() => {
@@ -60,13 +62,13 @@ const Layout = ({
            <div className={styles.cardsArea}>
                {users.map(({name, age, id, isBlocked}, index) => (
                    <UserCard
-                       key={id}
-                       name={name}
-                       age={age}
-                       id={id}
-                       isBlocked={isBlocked}
-                       onDelete={handleRemoveUser}
-                       onBlock={handleBlockUser}
+                       // key={id}
+                       // name={name}
+                       // age={age}
+                       // id={id}
+                       // isBlocked={isBlocked}
+                       // onDelete={handleRemoveUser}
+                       // onBlock={handleBlockUser}
                        // userDetails={userDetails}
                    />
                ))}

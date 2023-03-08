@@ -35,14 +35,14 @@ const ListsContainer = () => {
 
     const handleAddUser = useCallback(() => {
         const newUser = {
-            id: uuid(),
-            name: "Alex",
-            age: random(1, 85, false),
-            isBlocked: false,
+            // id: uuid(),
+            // name: "Alex",
+            // age: random(1, 85, false),
+            // isBlocked: false,
         }
 
         setUsers((state) => {
-                // console.log(state)
+                console.log(state)
                 return [...state, newUser]
         });
 
