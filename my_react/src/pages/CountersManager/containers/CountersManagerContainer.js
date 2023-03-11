@@ -2,6 +2,7 @@ import {useState} from "react";
 import {v4 as uuid} from "uuid"
 
 import Layout from "../components/Layout";
+import {isEven} from "../utils/isEven";
 
 const CountersManagerContainer = () => {
     const [counters ,setCounters] = useState([]);
@@ -12,7 +13,14 @@ const CountersManagerContainer = () => {
             countValue: 0,
         }
 
-        setCounters((state) => [...state, newCounter])
+        // setCounters((state) => [...state, newCounter])
+        setCounters((state) => {
+            const updatedCounters = state.map((counter) => {
+                if (isEven()) {
+
+                }
+            })
+        })
     }
 
     const handleCounterRemove = (id) => {
@@ -73,6 +81,10 @@ const CountersManagerContainer = () => {
         })
     }
 
+    const handleRemoveAllCounters = () => {
+        setCounters([])
+    }
+
     return <Layout
         counters={counters}
         handleCounterCreate={handleCounterCreate}
@@ -80,6 +92,7 @@ const CountersManagerContainer = () => {
         handleIncrement={handleIncrement}
         handleDecrement={handleDecrement}
         handleCounterReset={handleCounterReset}
+        handleReset={handleRemoveAllCounters}
     />;
 };
 
