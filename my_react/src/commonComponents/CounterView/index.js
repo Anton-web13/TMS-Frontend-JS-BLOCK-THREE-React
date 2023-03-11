@@ -4,10 +4,17 @@ import PropTypes from "prop-types";
 
 import styles from './styles.module.css';
 
-const CounterView = ({counterValue, handleIncrement, handleDecrease, handleReset, countValueDescription, isEven}) => {
-    const isEven2 = counterValue % 2 === 0;
+const CounterView = ({
+    id,
+    counterValue,
+    handleIncrement,
+    handleDecrease,
+    handleReset,
+    countValueDescription,
+    isEven,
+    handleRemove,
+}) => {
 
-    console.log("Counter Render")
 
     return (
         <div className={styles.wrapper} style={{backgroundColor: isEven ? "red" : "#0fb3d9"}}>
@@ -15,21 +22,38 @@ const CounterView = ({counterValue, handleIncrement, handleDecrease, handleReset
             <div className={styles.display}>{countValueDescription}</div>
 
             <div className={styles.controlButtons}>
-                <button className={styles.controlButton} onClick={handleDecrease}>-</button>
-                <button className={styles.controlButton} onClick={handleReset}>Reset</button>
-                <button className={`${styles.controlButton}`} onClick={handleIncrement}>+</button>
+                <button
+                    disabled={counterValue === 0}
+                    className={styles.controlButton}
+                    onClick={() => handleDecrease(id)}
+                >-</button>
+                <button
+                    className={styles.controlButton}
+                    onClick={() => handleReset(id)}
+                >Reset</button>
+                <button
+                    className={`${styles.controlButton}`}
+                    onClick={() => handleIncrement(id)}
+                >+</button>
 
             </div>
+
+            {handleRemove && (
+                <button style={{backgroundColor: "red"}} onClick={() => handleRemove(id)}>Remove!</button>
+            )}
+
         </div>
     );
 }
 
 CounterView.propTypes = {
-    counterValue: PropTypes.number,
-    handleIncrement: PropTypes.func,
-    handleReset: PropTypes.func,
-    isEven: PropTypes.bool,
-    countValueDescription: PropTypes.string,
+    id: PropTypes.string.isRequired,
+    counterValue: PropTypes.number.isRequired,
+    handleIncrement: PropTypes.func.isRequired,
+    handleReset: PropTypes.func.isRequired,
+    // isEven: PropTypes.bool,
+    // countValueDescription: PropTypes.string,
+    handleRemove: PropTypes.func
 }
 
 export default memo(CounterView);
