@@ -4,7 +4,7 @@ import UserCard from "commonComponents/UserCard";
 
 import styles from "./styles.module.css"
 import {useEffect, useMemo} from "react";
-import {calcAverage} from "../../utils/calcAverage";
+import {calcAverage} from "../../../../utils";
 import {CollectUserIds} from "../../utils/collectUserIds";
 
 const Layout = ({

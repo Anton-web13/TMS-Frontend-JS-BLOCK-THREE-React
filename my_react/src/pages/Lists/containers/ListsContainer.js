@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import {v4 as uuid} from "uuid"
 import {random} from "lodash"
 
-import {calcAverage} from "../utils/calcAverage";
+import {calcAverage} from "../../../utils";
 
 
 // const numbers = [1,2,3,4,5];

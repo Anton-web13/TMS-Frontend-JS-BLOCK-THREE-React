@@ -12,10 +12,21 @@ const Layout = ({
                     handleIncrement,
                     handleDecrement,
                     handleCounterReset,
+                    totalSum,
+
 }) => {
+    const average =
+        counters.length > 0
+        ? totalSum / counters.length
+        : 0
     return (
         <div>
             <h1>Counters Manager</h1>
+            <div className={styles.stats}>
+                <p>TOTAL: {totalSum}</p>
+                <p>AVERAGE: {average}</p>
+                <p>COUNTERS AMOUNT: {counters.length}</p>
+            </div>
 
 
                 <div>

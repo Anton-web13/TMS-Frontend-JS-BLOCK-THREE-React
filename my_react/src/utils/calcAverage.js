@@ -1,4 +1,4 @@
-export const calcAverage = (users) => {
+const calcAverage = (users) => {
     const userAmount = users.length;
 
     if (userAmount === 0) {
@@ -7,3 +7,5 @@ export const calcAverage = (users) => {
 
     return users.reduce((result, {age}) => result + age, 0 ) / userAmount;
 }
+
+export default calcAverage;

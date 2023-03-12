@@ -3,3 +3,8 @@
     gap: 10px;
     flex-wrap: wrap;
 }
+
+.stats {
+    border: 1px solid black;
+    padding: 20px;
+}

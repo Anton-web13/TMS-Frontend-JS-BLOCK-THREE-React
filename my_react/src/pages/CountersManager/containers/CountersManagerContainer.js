@@ -1,8 +1,8 @@
-import {useState} from "react";
+import {useCallback, useState} from "react";
 import {v4 as uuid} from "uuid"
 
 import Layout from "../components/Layout";
-import {isEven} from "../utils/isEven";
+import {isEven} from "utils";
 
 const CountersManagerContainer = () => {
     const [counters ,setCounters] = useState([]);
@@ -16,14 +16,31 @@ const CountersManagerContainer = () => {
         // setCounters((state) => [...state, newCounter])
         setCounters((state) => {
             const updatedCounters = state.map((counter) => {
-                if (isEven()) {
+                // if (isEven(counter.countValue)) {
+                //     return {
+                //         ...counter,
+                //         countValue: counter.countValue + 1
+                //     };
+                // }
 
+                return {
+                    ...counter,
+                    countValue: isEven(counter.countValue)
+                        ? counter.countValue + 1
+                        : counter.countValue
                 }
-            })
+            });
+
+            updatedCounters.push(newCounter);
+
+            return updatedCounters;
+
+            // return [...updatedCounters, newCounter];
+
         })
     }
 
-    const handleCounterRemove = (id) => {
+    const handleCounterRemove = useCallback((id) => {
         setCounters((state) => {
             const countersCope = structuredClone(state);
             const counterIndexToRemove = countersCope.findIndex(
@@ -32,11 +49,18 @@ const CountersManagerContainer = () => {
 
             countersCope.splice(counterIndexToRemove, 1);
 
-            return countersCope;
+            return countersCope.map((counter) => {
+                return {
+                    ...counter,
+                    countValue: !isEven(counter.countValue)
+                        ? counter.countValue - 1
+                        : counter.countValue
+                }
+            });
         })
-    }
+    }, [])
 
-    const handleIncrement = (counterId) => {
+    const handleIncrement = useCallback((counterId) => {
         setCounters((state) => {
             const countersCope = structuredClone(state);
 
@@ -48,9 +72,9 @@ const CountersManagerContainer = () => {
 
             return countersCope;
         })
-    }
+    }, [])
 
-    const handleDecrement = (counterId) => {
+    const handleDecrement = useCallback((counterId) => {
         setCounters((state) => {
             const countersCope = structuredClone(state);
 
@@ -65,9 +89,9 @@ const CountersManagerContainer = () => {
             // }
             return countersCope;
         })
-    }
+    }, []);
 
-    const handleCounterReset = (counterId) => {
+    const handleCounterReset = useCallback((counterId) => {
         setCounters((state) => {
             const countersCope = structuredClone(state);
 
@@ -79,11 +103,15 @@ const CountersManagerContainer = () => {
 
             return countersCope;
         })
-    }
+    }, []);
 
     const handleRemoveAllCounters = () => {
         setCounters([])
     }
+
+    const totalSum = counters.reduce((result, {countValue}) => {
+        return countValue + result;
+    }, 0)
 
     return <Layout
         counters={counters}
@@ -93,6 +121,7 @@ const CountersManagerContainer = () => {
         handleDecrement={handleDecrement}
         handleCounterReset={handleCounterReset}
         handleReset={handleRemoveAllCounters}
+        totalSum={totalSum}
     />;
 };
 
