@@ -38,9 +38,9 @@ const CounterView = ({
 
             </div>
 
-            {handleRemove && (
-                <button style={{backgroundColor: "red"}} onClick={() => handleRemove(id)}>Remove!</button>
-            )}
+            {/*{handleRemove && (*/}
+            {/*    <button style={{backgroundColor: "red"}} onClick={() => handleRemove(id)}>Remove!</button>*/}
+            {/*)}*/}
 
         </div>
     );

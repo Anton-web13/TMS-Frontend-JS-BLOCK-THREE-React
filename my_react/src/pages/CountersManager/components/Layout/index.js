@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import CounterView from "../../../../commonComponents/CounterView";
 
 import styles from "./styles.module.css"
+import {Fragment} from "react";
 
 const Layout = ({
                     counters,
@@ -36,15 +37,19 @@ const Layout = ({
 
             <div className={styles.countersArea}>
                 {counters.map(({id, countValue}) => (
-                    <CounterView
-                        id={id}
-                        key={id}
-                        handleReset={handleCounterReset}
-                        handleIncrement={handleIncrement}
-                        counterValue={countValue}
-                        handleDecrease={handleDecrement}
-                        handleRemove={handleCounterRemove}
-                    />
+                    <Fragment key={id}>
+                        <CounterView
+                            id={id}
+                            handleReset={handleCounterReset}
+                            handleIncrement={handleIncrement}
+                            counterValue={countValue}
+                            handleDecrease={handleDecrement}
+                            // handleRemove={handleCounterRemove}
+                        />
+
+                        <button onClick={() => handleCounterRemove(id)}>Remove</button>
+                    </Fragment>
+
                 ))}
             </div>
 

@@ -8,6 +8,7 @@ import ListsContainer from "../pages/Lists/containers/ListsContainer";
 
 import {ROUTE_NAMES} from "./routerNames";
 import CountersManagerContainer from "../pages/CountersManager/containers/CountersManagerContainer";
+import FormsContainer from "../pages/Forms/containers/FormsContainer";
 
 const Router = () => {
     return (
@@ -18,6 +19,7 @@ const Router = () => {
             <Route path={ROUTE_NAMES.FUNCTIONAL_COUNTER} element={<FunctionalCounterContainer />}/>
             <Route path={ROUTE_NAMES.LISTS} element={<ListsContainer />}/>
             <Route path={ROUTE_NAMES.COUNTERS_MANAGER} element={<CountersManagerContainer />}/>
+            <Route path={ROUTE_NAMES.FORMS} element={<FormsContainer />}/>
 
             <Route path="*" element={<h1>404 Not Found</h1>}/>
         </Routes>
